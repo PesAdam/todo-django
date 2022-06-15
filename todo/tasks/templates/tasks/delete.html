@@ -1,16 +1,20 @@
-<h2> Delete? :( </h2>
+<h2 class="nadpis"> Delete? :( </h2>
 
-<p> are u sure you want to delete this "{{item}}"</p>
-<a href="{% url 'list' %}"> cancel </a>
+<div class="center-text">
+    <p> are u sure you want to delete this - "{{item}}"</p>
+    <a href="{% url 'list' %}" class="cancel"> cancel </a>
+</div>
 
 <form method="POST" action="">
     {% csrf_token %}
-    <input type="submit" name="confirm">
+    <div class="center">
+        <input class="button red" type="submit" name="confirm">
+    </div>
 </form>
 
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Ubuntu:wght@300&display=swap');
 
         body{
             background-color: #333;
@@ -27,30 +31,16 @@
             font-family: 'Ubuntu', sans-serif;
         }
     
-        .zoznam{
-
-        }
-
-        .wrapper{
-            width: 100%%;
-            height: 100%;
-            
-        }
-        
-        input[type=text] {
-            width: 40%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            display: block;
-            margin: 0 auto;
-        }
-
         .center{
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
+        .center-text{
+            text-align: center;
+        }
+
         .button{
             background-color: #4CAF50;
             border: none;
@@ -62,17 +52,16 @@
             margin-top: 20px;
         }
 
-        .zoznam{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 5px;
-            font-size: 22px;
-            
+        .red{
+            background: #f44336;
         }
 
-        .zoznam a{
-            padding-right: 10px;
+        p{
+            font-family: 'Raleway', sans-serif;
         }
 
+        .cancel{
+            font-size: 16px;
+            color: #4CAF50;
+        }
 </style>
