@@ -1,16 +1,102 @@
-<h3> list </h3>
-<form method="POST" action="/">
-    {% csrf_token %}
-    {{form.title}}
-    <input type="submit" name="create a task">
-</form>
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-{% for task in tasks %}
-    <div>
-        <a href="{% url 'update_task' task.id %}"> Update </a>
-        <a href="{% url 'delete' task.id %}"> Delete </a>
-        <p>{{task}}</p>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Ubuntu:wght@300&display=swap');
+
+        body{
+            background-color: #333;
+            color: #fff;
+        }
+        
+        a{
+            color: #fff;
+        }
+
+        .nadpis{
+            font-size: 3em;
+            text-align: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+    
+        .zoznam{
+
+        }
+
+        .wrapper{
+            width: 100%%;
+            height: 100%;
+            
+        }
+        
+        input[type=text] {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .button{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .zoznam{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            font-size: 22px;
+            
+        }
+
+        .zoznam a{
+            padding-right: 10px;
+        }
+
+        p{
+            font-family: 'Raleway', sans-serif;
+        }
+
+    </style>
+    
+    <h3 class="nadpis"> TodoList </h3>
+    <div class="wrapper">
+        <form method="POST" action="/" >
+            {% csrf_token %}
+            {{form.title}}
+            <div class="center">
+                <input type="submit" class="button" name="create a task"> 
+            </div>
+        </form>
     </div>
 
-{%endfor%}
+    {% for task in tasks %}
+        <div class="zoznam">
+            <a href="{% url 'update_task' task.id %}"><i class="fa-solid fa-pen"></i></a>
+            <a href="{% url 'delete' task.id %}"><i class="fa-solid fa-trash-can"></i></a>
+            <p> - {{task}}</p>
+        </div>
+
+    {%endfor%}
+
+</body>
+</html>
