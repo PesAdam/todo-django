@@ -1,13 +1,19 @@
-<h3> Update task </h3>
+<h3 class="nadpis"> Update task :O </h3>
 <form method="POST" action="">
     {% csrf_token %}
-    {{form}}
-    <input type="submit" name="Update task">
-
+    <div class="container">
+        <div class="center-text">
+            {{form}}
+        </div>
+    
+        <input type="submit" class="button" name="Update task">
+    </div>
 </form>
 
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Ubuntu:wght@300&display=swap');
+
     body{
         background-color: #333;
         color: #fff;
@@ -16,5 +22,71 @@
     a{
         color: #fff;
     }
+
+    .nadpis{
+        font-size: 3em;
+        text-align: center;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    label{
+        font-size: 1.5em;
+        margin-botom: 20px;
+        font-family: 'Raleway';
+     }
+
+    .wrapper{
+        width: 100%%;
+        height: 100%;
+        
+    }
+    
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .zoznam{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        font-size: 22px;
+        
+    }
+
+    .zoznam a{
+        padding-right: 10px;
+    }
+
+    p{
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    .container{
+        max-width: 500px;
+        margin: auto;
+    }
+
 
 </style>
